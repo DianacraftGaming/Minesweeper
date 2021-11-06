@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>САПЁР</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="setting()">
+	<div class="body">
+		<center>
+		<img src="images/logo.png" id='logo'>
+		<div>
+			<span onclick="show_tab(1)" id="bat_1" class="myButton"></span>
+			<span onclick="show_tab(2)" id="bat_2" class="myButton"></span>
+			<span onclick="show_tab(3)" id="bat_3" class="myButton"></span>
+		</div>	
+			
+		<!--  1 Tab -->
+		<div id="tab_1" class="tab">
+			<div id="rules" class="gameWrap">
+				<img src="images/rulesBig.png">
+				<p>У нас есть поле, разделённое на квадраты. Какие-то из них «заминированы», но где они, мы не в курсе. Наша цель — открыть все незаминированные квадраты и не подорваться. Вы открываете квадрат левой кнопкой мыши, и если под ней мины нет, то появится число, означающее количество мин, расположенных по соседству с открытой ячейкой. Теперь нужно немного посчитать и предположить, какие ячейки можно открывать, а какие следует пометить, как заминированные. И так до победы или подрыва.</p>     
+			</div>
+		</div>		
+		<!--  2 Tab -->
+		<div id="tab_2" style="display: block;" class="tab">
+			<div class="gameWrap" id="game">
+				<div id="field">
+				
+				</div>
+			</div>
+		</div>
+		<!--  3 Tab -->
+		<div id="tab_3" class="tab">
+			<div id="settings" class="gameWrap">
+				<img src="images/settingsBig.png">
+				
+			</div>
+		</div>
+	</div>
+	</center>
+
+	<script src="scripts/script.js"></script>
+</body>
+</html>

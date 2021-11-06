@@ -1,0 +1,86 @@
+@font-face {
+    font-family: EternalUiRegular; /* Гарнитура шрифта */
+    src: url(../fonts/EternalUiRegular.ttf); /* Путь к файлу со шрифтом */
+   }
+
+body{
+	background-image: url("../images/bg.jpg");
+	background-repeat: repeat;
+	background-size: 250px;
+	background-attachment: fixed; 
+}
+
+.body{
+	width: 75%;
+	height: 100%;
+	background-color: #FFE4B5;
+	font-size: 20px;
+	font-family: EternalUiRegular
+}
+
+.gameWrap{
+	width: 400px;
+	min-height: 400px;
+	border-width: 5px;
+	border-style: outset;
+	border-color: #DEB887;
+	border-radius: 25px 0 25px 0;
+	margin-top: 10px;
+	display: flex;
+}
+
+#game {
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; 
+  width: 322px;
+  height: 322px;
+  background-color: #fff; 
+  display: flex;
+}
+
+.cell {
+  width: 16px;
+  height: 16px;
+  background-color: #1d1d1d;
+  margin: 2px;
+  /*box-shadow: 0 0 2px #000;*/
+  transition: 2s ease;
+}	
+
+#logo{
+	width: 60%
+}
+
+div{
+	text-align: center;
+	margin: auto;
+}
+
+.btnImg{
+	height: 25px;
+}
+
+.myButton {
+border-radius: 10px 0 10px 0;
+border:3px outset #DEB887;
+display:inline-block;
+cursor:pointer;
+padding-top: 2px;
+padding: 2px 4px 0 4px
+}
+
+#bat_2{
+	border: 3px solid #8a7254;
+}
+
+.tab{
+	height: 500px;
+	border-radius: 0 0 12px 12px;
+	display: none;
+}
+.wrap_tab{
+	width: 340px;
+	height: 230px;
+	margin: 40px ;	
+}
