@@ -6,7 +6,7 @@ let sizeX = 10;
 let sizeY = 10;
 
 
-let field = document.getElementById('game');
+let field = document.getElementById('field');
 let cellWidth = field.clientWidth / sizeX - 4;
 let cellHeight = field.clientHeight / sizeY - 4;
 for(let i = 0; i<sizeX; i++){

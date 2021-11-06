@@ -29,13 +29,14 @@ body{
 	/*display: flex;*/
 }
 
-#game {
+#field {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap; 
   width: 322px;
   height: 322px;
   background-color: #fff; 
+  display: flex;
 }
 
 .cell {
