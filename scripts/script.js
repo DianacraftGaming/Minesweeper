@@ -14,8 +14,8 @@ for(let i = 0; i<sizeX; i++){
 		const square = document.createElement('div');
     	square.classList.add('cell');
 
-    	/*square.style.width = `${cellWidth}px`;
-    	square.style.height = `${cellHeight}px`;*/
+    	square.style.width = `${cellWidth}px`;
+    	square.style.height = `${cellHeight}px`;
 
     	//square.addEventListener('mouseover', () => setColor(square))
     	//square.addEventListener('mouseleave', () => removeColor(square))
