@@ -2,18 +2,9 @@ let currentTab;
 let tabName1 = "<img src=\"images/rules.png\" class=\"btnImg\">"
 let tabName2 = "<img src=\"images/game.png\" class=\"btnImg\">"
 let tabName3 = "<img src=\"images/settings.png\" class=\"btnImg\">"
-let sizeX = 11;
-let sizeY = 11;
-
-
-
-function onMouseClick(square){
-	square.classList.add('open')
-}
-
-function onMouseDblClick(square){
-	square.classList.remove('open')
-}
+let sizeX = 10;
+let sizeY = 10;
+let minesCount = 25;
 
 function setting(){
 	currentTab = 2;
@@ -32,22 +23,7 @@ function setting(){
 	battom3.innerHTML = tabName3;
 
 	let field = document.getElementById('field');
-	let cellWidth = field.clientWidth / sizeX - 4; //TODO: count the '4' via cell/square
-	let cellHeight = field.clientHeight / sizeY - 4;
-	for(let i = 0; i<sizeX; i++){
-		for(let i = 0; i<sizeX; i++){
-			const square = document.createElement('div');
-    		square.classList.add('cell');
-
-	    	square.style.width = `${cellWidth}px`;
-    		square.style.height = `${cellHeight}px`;
-
-			square.addEventListener('click', () => onMouseClick(square))
-			square.addEventListener('dblclick', () => onMouseDblClick(square))
-
-    		field.append(square)
-		}
-	}
+	restartGame(field);
 }
 
 function changeActivity(num, state){
