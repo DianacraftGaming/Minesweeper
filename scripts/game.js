@@ -1,10 +1,10 @@
-let minesArray;
+let gameArray;
 
 function onMouseClick(square){
     let coordinates = square.id.split("_");
     let x = parseInt(coordinates[1]);
     let y = parseInt(coordinates[2]);
-    if(minesArray[x][y]){
+    if(gameArray[x][y].isMine()){
         square.classList.add('mine')
     } else {
 	    square.classList.add('open')
@@ -38,34 +38,20 @@ function createGameField(field){
 
 function restartGame(field){
     createGameField(field)
+    gameArray = initArrayViaFunction(sizeX, sizeY, ((x, y) => new Cell(x, y)));
     setMines()
 }
 
 function setMines(){
-    minesArray = initArray(sizeX, sizeY, false);
     let minesSet = 0;
         while(minesSet < minesCount)
         {
             let tmpX = getRandomNumber(0, sizeX-1);
             let tmpY = getRandomNumber(0, sizeY-1);
-            if (!minesArray[tmpX][tmpY]){
-                minesArray[tmpX][tmpY] = true;
+            if (!gameArray[tmpX][tmpY].isMine()){
+                gameArray[tmpX][tmpY].setMine();
                 minesSet++;
             }
         }
 }
 
-function initArray(x, y, defaultValue){
-    let array = new Array()
-    for(let i = 0; i < x; i++){
-        array[i] = new Array();
-        for(let j = 0; j < y; j++){
-            array[i][j] = defaultValue;
-        }
-    }
-    return array;
-}
-
-function getRandomNumber(min, max) {
-    return Math.round(Math.random()*(max - min) + min)
-}
