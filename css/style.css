@@ -60,6 +60,10 @@ body{
 	background-color: indianred;
 }
 
+.cell.closed_mine{
+	background-color: rgb(226, 119, 100);
+}
+
 #logo{
 	width: 60%
 }

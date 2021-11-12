@@ -1,15 +1,18 @@
 const FlagStatus = {FLAG: 'FLAG' , WEAK_FLAG: 'WEAK_FLAG', NONE: 'NONE', OPENED: 'OPENED'}
 
 class Cell{
+    #listener;
     #xCoordinate;
     #yCoordinate;
     #hasMine = false;
     #flagStatus = FlagStatus.NONE;
     #minesAround = 0;
+    #visualSquare;
     
-    constructor(x, y){
+    constructor(x, y, listener){
         this.#xCoordinate = x;
         this.#yCoordinate = y;
+        this.#listener = listener;
     }
 
     setMine() {
@@ -35,6 +38,7 @@ class Cell{
     setOpened(minesAround) {
         this.#flagStatus = FlagStatus.OPENED;
         this.#minesAround = minesAround;
+        this.#listener(this);
     }
 
     getFlagStatus() {
@@ -43,9 +47,18 @@ class Cell{
 
     setFlag(flagStatus) {
         this.#flagStatus = flagStatus;
+        this.#listener(this);
     }
 
     getMinesAround() {
         return this.#minesAround;
+    }
+
+    getVisualSquare() {
+        return this.#visualSquare;
+    }
+
+    setVisualSquare(square) {
+        this.#visualSquare = square;
     }
 }
