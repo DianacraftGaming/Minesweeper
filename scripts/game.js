@@ -10,7 +10,7 @@ let flagsOnField;
 
 function restartGame(field){
     gameStatus = GameStatus.RUNNING;
-    gameArray = initArrayViaFunction(sizeX, sizeY, ((x, y) => new Cell(x, y, ((cell) => updateCell(cell)))));
+    gameArray = initArrayViaFunction(sizeX, sizeY, ((x, y) => new Cell(x, y, updateCell)));
     createGameField(field)
     setMines()
 }
