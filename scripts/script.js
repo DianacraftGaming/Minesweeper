@@ -5,6 +5,9 @@ let tabName3 = "<img src=\"images/settings.png\" class=\"btnImg\">"
 let sizeX = 10;
 let sizeY = 10;
 let minesCount = 25;
+let newSizeX = 10;
+let newSizeY = 10;
+let newMinesCount = 25;
 
 function setting(){
 	currentTab = 2;
@@ -18,12 +21,25 @@ function setting(){
 	battom2.addEventListener('click', () => show_tab(2));
 	battom3.addEventListener('click', () => show_tab(3));
 
+
 	battom1.innerHTML = tabName1;
 	battom2.innerHTML = tabName2;
 	battom3.innerHTML = tabName3;
 
 	let field = document.getElementById('field');
 	restartGame(field);
+}
+
+function changeHeight(){
+	newSizeX = parseInt(document.querySelector('#heightInput').value);
+}
+
+function changeWidth(){
+	newSizeY = parseInt(document.querySelector('#widthInput').value);
+}
+
+function changeMines(){
+	newMinesCount = parseInt(document.querySelector('#minesInput').value);
 }
 
 function changeActivity(num, state){
@@ -39,8 +55,17 @@ function changeActivity(num, state){
 	}
 }
 
+function applyChanges(){
+	sizeX = newSizeX;
+	sizeY = newSizeY;
+	minesCount = newMinesCount;
+	show_tab(2);
+	restartGame(field)
+}
+
 function show_tab(num) {
 	changeActivity(currentTab, false);
 	changeActivity(num, true);
 	currentTab = num;
 }
+

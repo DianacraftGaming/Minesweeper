@@ -43,6 +43,16 @@ body{
 	display: flex;
 }
 
+#wrap{
+	width: 400px;
+	text-align: right;
+}
+
+input{
+	width: 50px;
+	margin-right: 100px;
+}
+
 .cell {
   width: 16px;
   height: 16px;
@@ -78,12 +88,15 @@ div{
 }
 
 .myButton {
-border-radius: 10px 0 10px 0;
-border:3px outset #DEB887;
-display:inline-block;
-cursor:pointer;
-padding-top: 2px;
-padding: 2px 4px 0 4px
+	border-radius: 10px 0 10px 0;
+	background-color: transparent;
+	border:3px outset #DEB887;
+	display:inline-block;
+	cursor:pointer;
+	padding-top: 2px;
+	padding: 2px 4px 0 4px;
+	font-family: EternalUIRegular;
+	font-size: 20px
 }
 .myButton.active{
 	border: 3px solid #8a7254;
