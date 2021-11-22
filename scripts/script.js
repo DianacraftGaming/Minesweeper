@@ -27,7 +27,7 @@ function setting(){
 	battom3.innerHTML = tabName3;
 
 	let field = document.getElementById('field');
-	restartGame(field);
+	startGame(field);
 }
 
 function changeHeight(){
@@ -60,12 +60,16 @@ function applyChanges(){
 	sizeY = newSizeY;
 	minesCount = newMinesCount;
 	show_tab(2);
-	restartGame(field)
+	startGame(field)
 }
 
 function show_tab(num) {
 	changeActivity(currentTab, false);
 	changeActivity(num, true);
 	currentTab = num;
+}
+
+function showScore(score){
+    
 }
 

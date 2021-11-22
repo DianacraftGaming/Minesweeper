@@ -1,15 +1,26 @@
 /*TODO:
-let score
-function setScore(score)
+    normal alerts of win and lose
+    mines limits
+    update rules (controles)
 */
 
 const GameStatus = {RUNNING: 'RUNNING' , WIN: 'WIN', LOSE: 'LOSE'}
 let gameStatus;
 let gameArray;
 let flagsOnField;
+let field;
+let score;
+let goal;
 
-function restartGame(field){
+function startGame(externalField) {
+    field = externalField;
+    restartGame();
+}
+
+function restartGame(){
     gameStatus = GameStatus.RUNNING;
+    goal = sizeX*sizeY-minesCount;
+    score = 0;
     gameArray = initArrayViaFunction(sizeX, sizeY, ((x, y) => new Cell(x, y, updateCell)));
     createGameField(field)
     setMines()
@@ -31,7 +42,7 @@ function createGameField(field){
     		square.style.height = `${cellHeight}px`;
 
 			square.addEventListener('click', () => onMouseClick(square));
-			//square.addEventListener('dblclick', () => onMouseDblClick(square));
+			square.addEventListener('dblclick', () => onMouseDblClick(square));
             square.addEventListener('contextmenu', () => onContextMenu(square));
 
     		field.append(square);
@@ -48,6 +59,10 @@ function getCell(square){
 }
 
 function onContextMenu(square){
+    if(gameStatus != GameStatus.RUNNING){
+        restartGame();
+        return;
+    }
     let cell = getCell(square);
 
         if(cell.isOpened())
@@ -87,6 +102,11 @@ function setMines(){
 }
 
 function onMouseClick(square){
+    if(gameStatus != GameStatus.RUNNING){
+        restartGame();
+        return;
+    }
+
     let cell = getCell(square);
 
     openCell(cell)
@@ -94,42 +114,42 @@ function onMouseClick(square){
 }
 
 function openCell(cell){
+    if(gameStatus != GameStatus.RUNNING){
+        return;
+    }
+
     if (cell.getFlagStatus() == FlagStatus.FLAG)
+        return;
+
+    if(cell.isOpened())
         return;
 
     if(cell.isMine()){
         gameStatus = GameStatus.LOSE;
         cell.setFlag(FlagStatus.OPENED);
         showMines();
-        //showMessageDialog(Color.NONE, "You lost.", Color.BLACK, 50);
+        alert('You lost');
+        return;
     }
 
-    else if(cell.isOpened()){
-        let a = cell.getMinesAround();
-        let b = checkFlags(cell);
-
-        if(a == b) {
-            getClosedNeighbours(cell).forEach(neighbor => openCell(neighbor));
-        }
+    //Opening the cell
+    a = checkMines(cell);
+    score++;
+    showScore(goal - score);
+    if(a>0) {
+        cell.setOpened(a);
     }
-
     else {
-        a = checkMines(cell);
-        //score++;
-        //setScore(goal - score);
-        if(a>0) {
-            cell.setOpened(a);
-        }
-        else {
-            cell.setOpened(a);
-            getClosedNeighbours(cell).forEach(neighbor => openCell(neighbor));
-        }
+        cell.setOpened(a);
+        getClosedNeighbours(cell).forEach(neighbor => openCell(neighbor));
     }
-    /*if(score == goal)
+
+    if(score == goal && gameStatus != GameStatus.WIN)
     {
         gameStatus = GameStatus.WIN;
-        showMessageDialog(Color.NONE, "You won!", Color.BLACK, 50);
-    }*/
+        //console.log('You won', cell.getX(), cell.getY())
+        alert('You won')
+    }
 }
 
 function showMines(){
@@ -168,7 +188,21 @@ function getClosedNeighbours(cell){
 }
 
 function onMouseDblClick(square){
-	//square.classList.remove('open')
+    if(gameStatus != GameStatus.RUNNING){
+        restartGame();
+        return;
+    }
+
+    let cell = getCell(square);
+    
+    if(cell.isOpened()){
+        let a = cell.getMinesAround();
+        let b = checkFlags(cell);
+
+        if(a == b) {
+            getClosedNeighbours(cell).forEach(neighbor => openCell(neighbor));
+        }
+    }
 }
 
 function updateCell(cell){
