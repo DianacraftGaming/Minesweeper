@@ -7,48 +7,49 @@
 </head>
 <body onload="setting()">
 	<div class="body">
-		<center>
-		<img src="images/logo.png" id='logo'>
-		<div>
-			<span class="myButton" id="bat_1"></span>
-			<span class="myButton" id="bat_2"></span>
-			<span class="myButton" id="bat_3"></span>
-		</div>	
-			
-		<!--  1 Tab -->
-		<div class="tab" id="tab_1">
-			<div class="gameWrap" id="rules">
-				<img src="images/rulesBig.png">
-				<p>У нас есть поле, разделённое на квадраты. Какие-то из них «заминированы», но где они, мы не в курсе. Наша цель — открыть все незаминированные квадраты и не подорваться. Вы открываете квадрат левой кнопкой мыши, и если под ней мины нет, то появится число, означающее количество мин, расположенных по соседству с открытой ячейкой. Теперь нужно немного посчитать и предположить, какие ячейки можно открывать, а какие следует пометить, как заминированные. И так до победы или подрыва.</p>     
-				<p>ЛКМ - открыть клетку </p>
-				<p>ПКМ - установить флаг</p>
-				<p>ДЛКМ - Автооткрытие соседних клеток
-				</p>
-			</div>
-		</div>		
-		<!--  2 Tab -->
-		<div class="tab" id="tab_2">
-			<div class="gameWrap" id="game">
-				<div id="field">
+		<div id='div_img'><img src="images/logo.png" id='logo'></div>
+
+		<div id='main'>
+			<div>
+				<span class="myButton" id="bat_1"></span>
+				<span class="myButton" id="bat_2"></span>
+				<span class="myButton" id="bat_3"></span>
+			</div>	
 				
+			<!--  1 Tab -->
+			<div class="tab" id="tab_1">
+				<div class="gameWrap" id="rules">
+					<img src="images/rulesBig.png">
+					<p>У нас есть поле, разделённое на квадраты. Какие-то из них «заминированы», но где они, мы не в курсе. Наша цель — открыть все незаминированные квадраты и не подорваться. Вы открываете квадрат левой кнопкой мыши, и если под ней мины нет, то появится число, означающее количество мин, расположенных по соседству с открытой ячейкой. Теперь нужно немного посчитать и предположить, какие ячейки можно открывать, а какие следует пометить, как заминированные. И так до победы или подрыва.</p>     
+					<p>ЛКМ - открыть клетку </p>
+					<p>ПКМ - установить флаг</p>
+					<p>ДЛКМ - Автооткрытие соседних клеток
+					</p>
 				</div>
-				<span id="msgBox"></span>
+			</div>		
+			<!--  2 Tab -->
+			<div class="tab" id="tab_2">
+				<div class="gameWrap" id="game">
+					<div id="field">
+					
+					</div>
+					<span id="msgBox"></span>
+				</div>
 			</div>
-		</div>
-		<!--  3 Tab -->
-		<div class="tab" id="tab_3">
-			<div class="gameWrap" id="settings">
-				<img src="images/settingsBig.png">
-				<div id="wrap">
-					<p>Высота поля: <input type="number" name="heightInput" value='10' min="5" max="50" onchange="changeHeight()" id="heightInput"></p>
-					<p>Ширина поля: <input type="number" name="widthInput" value='10' min="5" max="50" onchange="changeWidth()" id="widthInput"></p>
-					<p>Количество мин: <input type="number" value='25' onchange="changeMines()" id="minesInput"></p>
+			<!--  3 Tab -->
+			<div class="tab" id="tab_3">
+				<div class="gameWrap" id="settings">
+					<img src="images/settingsBig.png">
+					<div id="wrap">
+						<p>Высота поля: <input type="number" name="heightInput" value='10' min="5" max="50" onchange="changeHeight()" id="heightInput"></p>
+						<p>Ширина поля: <input type="number" name="widthInput" value='10' min="5" max="50" onchange="changeWidth()" id="widthInput"></p>
+						<p>Количество мин: <input type="number" value='25' min='10' max='50' onchange="changeMines()" id="minesInput"></p>
+					</div>
+					<button class='myButton' id="apply" onclick="applyChanges()">Новая игра</button>
 				</div>
-				<button class='myButton' id="apply" onclick="applyChanges()">Новая игра</button>
 			</div>
 		</div>
 	</div>
-	</center>
 
 	<script src="scripts/lib.js"></script>
 	<script src="scripts/Cell.js"></script>

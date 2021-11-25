@@ -1,27 +1,60 @@
 @font-face {
-    font-family: EternalUiRegular; /* Гарнитура шрифта */
-    src: url(../fonts/EternalUiRegular.ttf); /* Путь к файлу со шрифтом */
-   }
+    font-family: EternalUiRegular;
+    src: url(../fonts/EternalUiRegular.ttf);
+}
 
 body{
-	background-image: url("../images/bg.jpg");
-	background-repeat: repeat;
-	background-size: 250px;
-	background-attachment: fixed; 
+	margin: 0;
 }
 
 .body{
-	width: 75%;
-	height: 930px;
-	margin-top: -10px;
+	height: 95vh;
+	margin-top: 5vh;
 	background-color: #FFE4B5;
 	font-size: 20px;
 	font-family: EternalUiRegular
 }
 
-#msgBox{
-	position: fixed;
-	bottom: 20px;
+#div_img{
+	text-align: right;
+}
+
+#logo{
+	width: 40%;
+}
+
+
+#main{
+	text-align: center;
+	margin: 0 auto;
+	width: 100%
+}
+
+.myButton {
+	border-radius: 10px 0 10px 0;
+	background-color: transparent;
+	border:3px outset #DEB887;
+	display:inline-block;
+	cursor:pointer;
+	padding: 2px 4px 0 4px;
+	font-family: EternalUIRegular;
+	font-size: 20px
+}
+.myButton.active{
+	border: 3px solid #8a7254;
+}
+
+.btnImg{
+	height: 25px;
+}
+
+.tab{
+	height: 500px;
+	border-radius: 0 0 12px 12px;
+	display: none;
+}
+.tab.active{
+	display: block;
 }
 
 .gameWrap{
@@ -31,8 +64,11 @@ body{
 	border-style: outset;
 	border-color: #DEB887;
 	border-radius: 25px 0 25px 0;
-	margin-top: 10px;
-	/*display: flex;*/
+	margin: 10px auto;
+}
+
+#game{
+	display: flex;
 }
 
 #field {
@@ -43,75 +79,44 @@ body{
   height: 322px;
   background-color: #DEB887; 
   display: flex;
+  margin: auto;
 }
 
-#game{
-	display: flex;
+.cell {
+	width: 16px;
+	height: 16px;
+	background-color: #FFE4B5;
+	margin: 2px;
+	transition: 0.2s ease-in-out;
+  }
+  
+  .cell.open{
+	  background-color: #DEB887;
+  }
+  
+  .cell.mine{
+	  background-color: indianred;
+  }
+  
+  .cell.closed_mine{
+	  background-color: rgb(226, 119, 100);
+  }
+
+#msgBox{
+	position: fixed;
+	bottom: 20px;
+}
+
+#settings{
+	text-align: center;
 }
 
 #wrap{
 	width: 400px;
 	text-align: right;
+	margin-right: 15px;
 }
 
-input{
-	width: 50px;
-	margin-right: 100px;
-}
-
-.cell {
-  width: 16px;
-  height: 16px;
-  background-color: #FFE4B5;
-  margin: 2px;
-  transition: 0.2s ease-in-out;
-}
-
-.cell.open{
-	background-color: #DEB887;
-}
-
-.cell.mine{
-	background-color: indianred;
-}
-
-.cell.closed_mine{
-	background-color: rgb(226, 119, 100);
-}
-
-#logo{
-	width: 60%
-}
-
-div{
-	text-align: center;
-	margin: auto;
-}
-
-.btnImg{
-	height: 25px;
-}
-
-.myButton {
-	border-radius: 10px 0 10px 0;
-	background-color: transparent;
-	border:3px outset #DEB887;
-	display:inline-block;
-	cursor:pointer;
-	padding-top: 2px;
-	padding: 2px 4px 0 4px;
-	font-family: EternalUIRegular;
-	font-size: 20px
-}
-.myButton.active{
-	border: 3px solid #8a7254;
-}
-
-.tab{
-	height: 500px;
-	border-radius: 0 0 12px 12px;
-	display: none;
-}
-.tab.active{
-	display: block;
+#wrap p{
+	margin-right: 20%;
 }
